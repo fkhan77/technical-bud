@@ -1,0 +1,46 @@
+{
+  "name": "technical-bud",
+  "version": "1.0.0",
+  "description": "technical test for bud",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fkhan77/technical-bud.git"
+  },
+  "author": "Farhad Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fkhan77/technical-bud/issues"
+  },
+  "homepage": "https://github.com/fkhan77/technical-bud#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^1.0.0",
+    "jest": "^26.6.3",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "core-js": "^3.10.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-loading": "^2.0.3",
+    "regenerator-runtime": "^0.13.7",
+    "styled-components": "^5.2.3"
+  }
+}
