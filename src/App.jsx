@@ -34,16 +34,22 @@ const Main = styled.main`
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [transactionData, setTransactionData] = useState([]);
 
   function handleGetTransactionData() {
     setIsLoading(true);
+    setIsError(false);
     getAccount()
       .then((account) => extractTransactionalData(account))
       .then((data) => {
         setTransactionData(data);
-        setIsLoading(false);
-      });
+      })
+      .catch((err) => {
+        setIsError(true);
+        setTransactionData([]);
+      })
+      .finally(() => setIsLoading(false));
   }
 
   return (
@@ -57,6 +63,12 @@ function App() {
         {isLoading && <ReactLoading type="spin" color="#00000" />}
       </Section>
       <Main>
+        {isError && (
+          <div>
+            An error occured, please try again. If the issue persists, please
+            try at a different time.{" "}
+          </div>
+        )}
         {transactionData.map(
           ({ date, description, category_title, amount }, index) => (
             <MemoizedTransactionCard
