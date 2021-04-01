@@ -5,9 +5,13 @@
  */
 
 export function extractTransactionalData(account) {
-  const result = account.transactions
-    .filter((transaction) => transaction.amount.value < 0)
-    .sort((a, b) => b.amount.value - a.amount.value)
-    .slice(0, 10);
-  return result;
+  try {
+    const result = account.transactions
+      .filter((transaction) => transaction.amount.value < 0)
+      .sort((a, b) => b.amount.value - a.amount.value)
+      .slice(0, 10);
+    return result;
+  } catch (err) {
+    return err.message;
+  }
 }
